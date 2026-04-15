@@ -12,8 +12,9 @@ services:
     env_file:
       - .env # ← adicione essa linha
     environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - CLAUDE_CODE_USE_OPENAI=1
-      - OPENAI_MODEL=gpt-5.4
+      - OPENAI_MODEL=codexplan
 
 volumes:
   codex_config:
