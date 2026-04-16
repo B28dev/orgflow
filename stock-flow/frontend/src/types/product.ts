@@ -1,13 +1,6 @@
 export type NavigationId = 'estoque' | 'cadastrar' | 'historico' | 'dashboard'
 
-export type ProductCategory =
-  | 'Limpeza'
-  | 'Higiene'
-  | 'Escritório'
-  | 'Copa'
-  | 'Descartáveis'
-  | 'Manutenção'
-  | 'Outros'
+export type ProductCategory = string
 
 export type ProductUnit = 'un' | 'cx' | 'pct' | 'rol' | 'kg' | 'lt'
 

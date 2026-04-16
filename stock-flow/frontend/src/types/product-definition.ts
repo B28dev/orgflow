@@ -1,6 +1,7 @@
 export type ProductDefinition = {
   product: {
     currentName: string
+    client: string
     isProvisional: boolean
     description: string
   }
@@ -16,6 +17,20 @@ export type ProductDefinition = {
     primary: boolean
   }>
   categories: string[]
+  categoryPolicy: {
+    mode: string
+    managedBy: string
+    allowFreeTextPerProduct: boolean
+    description: string
+  }
+  categoryEntity: {
+    description: string
+    fields: Array<{
+      name: string
+      type: string
+      required: boolean
+    }>
+  }
   units: string[]
   productFields: Array<{
     name: string

@@ -10,11 +10,11 @@ type StatCardProps = {
 
 export function StatCard({ label, value, helper }: StatCardProps) {
   return (
-    <Card elevated className="flex min-h-36 flex-col justify-between gap-4">
+    <Card elevated className="flex min-h-32 flex-col justify-between gap-4 sm:min-h-36">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-sm font-medium text-text-muted">{label}</p>
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-text">{value}</p>
+          <p className="mt-2 text-3xl font-semibold tracking-tight text-text sm:text-4xl">{value}</p>
         </div>
         <span className="flex size-10 items-center justify-center rounded-2xl bg-accent-soft text-accent">
           <ArrowUpRight className="size-5" />

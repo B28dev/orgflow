@@ -12,7 +12,7 @@ export function Card({ children, className, elevated = false, ...props }: CardPr
   return (
     <div
       className={cn(
-        'rounded-3xl border border-border bg-surface/95 p-4 backdrop-blur-sm transition-transform duration-200 ease-out',
+        'rounded-[1.6rem] border border-border/90 bg-surface p-4 transition-transform duration-200 ease-out sm:p-5',
         elevated ? 'shadow-card' : 'shadow-soft',
         className,
       )}

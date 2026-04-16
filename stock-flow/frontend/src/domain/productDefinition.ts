@@ -5,8 +5,11 @@ import type { MovementType, Product, ProductCategory, ProductUnit, StatusTone } 
 const productDefinition = productDefinitionData as ProductDefinition
 
 export const PRODUCT_NAME = productDefinition.product.currentName
+export const PRODUCT_CLIENT = productDefinition.product.client
 export const PRODUCT_DESCRIPTION = productDefinition.product.description
+// TODO Etapa 2/2.1: trocar a lista simples por categorias gerenciáveis do domínio compartilhado.
 export const PRODUCT_CATEGORIES = productDefinition.categories as ProductCategory[]
+export const PRODUCT_CATEGORY_POLICY = productDefinition.categoryPolicy
 export const PRODUCT_UNITS = productDefinition.units as ProductUnit[]
 export const PRODUCT_FIELDS = productDefinition.productFields
 export const PRODUCT_ACTIONS = productDefinition.actions
@@ -15,6 +18,7 @@ export const MOVEMENT_TYPES = productDefinition.movementTypes as MovementType[]
 export const HISTORY_EVENT_TYPES = MOVEMENT_TYPES
 export const NAVIGATION_BASE = productDefinition.navigation
 export const PRODUCT_PROFILES = productDefinition.profiles
+// TODO técnico: o rename de diretório/referências legadas de stock-flow pode ser feito em etapa separada.
 
 export function isLowStock(product: Product) {
   return product.quantidadeAtual <= product.estoqueMinimo

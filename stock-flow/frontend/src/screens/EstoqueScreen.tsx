@@ -1,4 +1,4 @@
-import { ArrowRight, Package } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 import { PageContainer } from '../app/layout/PageContainer'
 import { EmptyState } from '../components/feedback/EmptyState'
@@ -11,72 +11,79 @@ import { inventorySummary } from '../domain/stock'
 
 export function EstoqueScreen() {
   return (
-    <PageContainer>
-      <Card elevated className="grid gap-4 overflow-hidden bg-linear-to-br from-surface to-surface-accent">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <Badge tone="accent">Operação diária</Badge>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-text">Estoque em visão rápida</h1>
-            <p className="mt-2 max-w-2xl text-sm text-text-muted">
-              Busca, leitura de status e ações rápidas pensadas para rotina de depósito e conferência no celular.
-            </p>
-          </div>
-          <span className="flex size-14 items-center justify-center rounded-3xl bg-accent-soft text-accent shadow-soft">
-            <Package className="size-7" />
-          </span>
+    <PageContainer className="gap-5">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <Badge tone="accent">Estoque</Badge>
+          <h1 className="mt-3 text-2xl font-semibold tracking-tight text-text sm:text-3xl">Buscar e ajustar o estoque</h1>
+          <p className="mt-2 max-w-2xl text-sm text-text-muted">
+            Consulte produtos, veja alertas e siga com as ações rápidas da operação.
+          </p>
         </div>
+        <Button variant="secondary" className="hidden items-center gap-2 sm:inline-flex">
+          Ver histórico
+          <ArrowRight className="size-4" />
+        </Button>
+      </div>
 
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="rounded-2xl bg-surface/85 p-4">
-            <p className="text-sm text-text-muted">Itens ativos</p>
-            <p className="mt-1 text-2xl font-semibold text-text">{inventorySummary.active}</p>
-          </div>
-          <div className="rounded-2xl bg-warning-soft p-4">
-            <p className="text-sm text-warning">Em alerta</p>
-            <p className="mt-1 text-2xl font-semibold text-text">{inventorySummary.lowStock}</p>
-          </div>
-          <div className="rounded-2xl bg-danger-soft p-4">
-            <p className="text-sm text-danger">Críticos</p>
-            <p className="mt-1 text-2xl font-semibold text-text">{inventorySummary.critical}</p>
-          </div>
-        </div>
-      </Card>
-
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
         <section className="grid gap-4">
-          <div className="flex items-center justify-between gap-3">
+          <Card elevated className="grid gap-4 animate-[fade-in_var(--motion-slow)_var(--ease-standard)_both]">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="text-base font-semibold text-text">Busca rápida</h2>
+                <p className="text-sm text-text-muted">Encontre um item e siga para a próxima ação.</p>
+              </div>
+              <Badge>{inventorySummary.total} itens na base</Badge>
+            </div>
+
+            <SearchField />
+
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+              <div className="rounded-2xl border border-border bg-surface-muted/70 px-3 py-3">
+                <p className="text-xs font-medium text-text-muted">Itens ativos</p>
+                <p className="mt-1 text-lg font-semibold text-text">{inventorySummary.active}</p>
+              </div>
+              <div className="rounded-2xl border border-warning/25 bg-warning-soft px-3 py-3">
+                <p className="text-xs font-medium text-warning">Em alerta</p>
+                <p className="mt-1 text-lg font-semibold text-text">{inventorySummary.lowStock}</p>
+              </div>
+              <div className="rounded-2xl border border-danger/25 bg-danger-soft px-3 py-3 sm:col-span-1 col-span-2">
+                <p className="text-xs font-medium text-danger">Críticos</p>
+                <p className="mt-1 text-lg font-semibold text-text">{inventorySummary.critical}</p>
+              </div>
+            </div>
+          </Card>
+
+          <div className="flex items-end justify-between gap-3">
             <div>
               <h2 className="text-lg font-semibold text-text">Produtos cadastrados</h2>
-              <p className="text-sm text-text-muted">Toque em qualquer ação para visualizar a casca do fluxo operacional.</p>
+              <p className="text-sm text-text-muted">Entrada, saída, edição e remoção já estão preparadas visualmente.</p>
             </div>
-            <Button variant="secondary" className="hidden items-center gap-2 sm:inline-flex">
-              Ver histórico
-              <ArrowRight className="size-4" />
-            </Button>
+            <p className="hidden text-xs font-medium text-text-soft sm:block">Toque na ação desejada em cada item</p>
           </div>
 
-          <SearchField />
           <ProductList />
         </section>
 
         <aside className="grid gap-4">
           <Card elevated className="space-y-3">
             <div>
-              <h2 className="text-lg font-semibold text-text">Ações disponíveis</h2>
-              <p className="text-sm text-text-muted">Base visual já alinhada às ações obrigatórias da V1.</p>
+              <h2 className="text-base font-semibold text-text">Fluxo desta etapa</h2>
+              <p className="text-sm text-text-muted">A base já cobre as ações principais do dia a dia.</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Badge tone="accent">Cadastrar produto</Badge>
-              <Badge>Aumentar quantidade</Badge>
-              <Badge>Diminuir quantidade</Badge>
-              <Badge>Editar digitando</Badge>
-              <Badge>Remover produto</Badge>
+              <Badge tone="accent">Cadastrar item</Badge>
+              <Badge>Ajustar entrada</Badge>
+              <Badge>Registrar saída</Badge>
+              <Badge>Editar saldo</Badge>
+              <Badge>Remover item</Badge>
             </div>
           </Card>
 
           <EmptyState
-            title="Mais filtros entram na Etapa 2"
-            description="A base visual já está pronta para receber filtros, paginação e integração com dados reais."
+            title="Filtros entram na próxima etapa"
+            description="A tela já está pronta para receber prateleira funcional, filtros e dados reais sem mudar a base visual."
           />
         </aside>
       </div>

@@ -1,8 +1,9 @@
 {
   "product": {
-    "currentName": "StockFlow",
-    "isProvisional": true,
-    "description": "Sistema interno de controle de materiais e estoque que controla o saldo atual dos itens e documenta movimentações operacionais com leitura clara para operação e gestão."
+    "currentName": "Acama-Stock",
+    "client": "ACAME",
+    "isProvisional": false,
+    "description": "Sistema interno de controle de materiais e estoque com registro de movimentações operacionais, leitura simples para operação e clareza gerencial para a ACAME."
   },
   "inventoryModel": {
     "primaryConcept": "O estoque é controlado por movimentações registradas no histórico operacional.",
@@ -36,6 +37,37 @@
     "Manutenção",
     "Outros"
   ],
+  "categoryPolicy": {
+    "mode": "suggested",
+    "managedBy": "gestor",
+    "allowFreeTextPerProduct": false,
+    "description": "Categorias iniciais são sugeridas e podem ser gerenciadas pelo gestor, sem texto livre solto em cada produto."
+  },
+  "categoryEntity": {
+    "description": "Estrutura mínima prevista para categorias gerenciáveis em etapa futura.",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "isActive",
+        "type": "boolean",
+        "required": true
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      }
+    ]
+  },
   "units": [
     "un",
     "cx",
@@ -61,7 +93,7 @@
       "name": "categoria",
       "type": "string",
       "required": true,
-      "description": "Classificação operacional do item."
+      "description": "Categoria operacional do item, selecionada a partir das categorias sugeridas e gerenciáveis."
     },
     {
       "name": "unidade",
@@ -136,7 +168,7 @@
       "name": "quantityChanged",
       "type": "number",
       "required": true,
-      "description": "Quantidade alterada na operação."
+      "description": "Delta da operação registrada."
     },
     {
       "name": "previousQuantity",
@@ -198,7 +230,7 @@
   "productMovementRelationship": {
     "productRole": "O produto guarda o estado atual operacional visível para uso rápido.",
     "movementRole": "A movimentação guarda a trilha histórica que explica como o estado do item foi formado.",
-    "currentBalanceDerivation": "O saldo atual do item é entendido a partir de entradas, saídas e ajustes acumulados.",
+    "currentBalanceDerivation": "O saldo atual do item é entendido a partir de entradas, saídas e ajustes acumulados, embora quantidadeAtual permaneça materializado na V1.",
     "dashboardDependency": "O dashboard futuro depende das movimentações para consolidar fluxo e leitura gerencial.",
     "historyDependency": "O histórico futuro exibe essa trilha operacional ao gestor e à operação."
   },
@@ -215,7 +247,7 @@
     {
       "id": "cadastrar",
       "label": "Cadastrar",
-      "purpose": "Cadastro de novos produtos com os campos obrigatórios da V1 e preparo para eventos de cadastro e remoção."
+      "purpose": "Cadastro de novos produtos com os campos obrigatórios da V1 e preparo para eventos de cadastro, edição e remoção conectados ao histórico."
     },
     {
       "id": "historico",

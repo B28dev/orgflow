@@ -9,9 +9,9 @@ export function SearchField() {
       <Search className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-text-soft" />
       <Input
         type="search"
-        placeholder="Buscar produto por nome"
-        className="pl-11"
-        aria-label="Buscar produto por nome"
+        placeholder="Buscar por nome ou categoria"
+        className="min-h-13 rounded-[1.25rem] pl-11 text-[15px] sm:text-sm"
+        aria-label="Buscar produto por nome ou categoria"
       />
     </label>
   )
