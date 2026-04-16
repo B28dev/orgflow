@@ -1,0 +1,65 @@
+:root {
+  --color-brand-primary: #50ac54;
+  --color-brand-primary-strong: #418f46;
+  --color-brand-primary-soft: #edf7ee;
+  --color-brand-primary-foreground: #ffffff;
+
+  --color-bg-page: #ffffff;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-muted: #f7faf7;
+  --color-bg-elevated-base: #fcfffc;
+
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-text-muted-base: #6b7280;
+  --color-text-soft-base: #8a9385;
+
+  --color-border-subtle: #e5ece5;
+  --color-border-strong-base: #d4ddd4;
+
+  --color-success: #50ac54;
+  --color-success-soft: #edf7ee;
+  --color-warning: #c8941f;
+  --color-warning-soft: #fbf5e8;
+  --color-danger: #d9534f;
+  --color-danger-soft: #fdf0ef;
+  --color-info: #50ac54;
+  --color-info-soft: #edf7ee;
+
+  --color-focus-ring: #50ac54;
+  --color-hover-surface: #f3f7f3;
+  --color-active-surface: #edf7ee;
+
+  --color-bg: var(--color-bg-page);
+  --color-bg-elevated: var(--color-bg-elevated-base);
+  --color-surface: var(--color-bg-surface);
+  --color-surface-muted: var(--color-bg-surface-muted);
+  --color-surface-accent: var(--color-active-surface);
+  --color-border: var(--color-border-subtle);
+  --color-border-strong: var(--color-border-strong-base);
+  --color-text: var(--color-text-primary);
+  --color-text-muted: var(--color-text-secondary);
+  --color-text-soft: var(--color-text-soft-base);
+  --color-accent: var(--color-brand-primary);
+  --color-accent-strong: var(--color-brand-primary-strong);
+  --color-accent-soft: var(--color-brand-primary-soft);
+
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 14px 34px rgba(15, 23, 42, 0.07);
+  --shadow-floating: 0 14px 30px rgba(80, 172, 84, 0.14);
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.4rem;
+  --radius-xl: 1.7rem;
+
+  --space-section: clamp(1rem, 3vw, 1.75rem);
+  --space-shell-x: clamp(1rem, 3vw, 1.5rem);
+  --space-shell-y: clamp(1rem, 2vw, 1.5rem);
+
+  --motion-fast: 160ms;
+  --motion-base: 220ms;
+  --motion-slow: 360ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --touch-target: 2.75rem;
+}

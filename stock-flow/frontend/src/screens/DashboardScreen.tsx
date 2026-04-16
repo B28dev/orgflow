@@ -34,7 +34,7 @@ function DashboardBalloon({
     <Card
       elevated
       className={[
-        'space-y-4 border-border/85 animate-[fade-in_420ms_var(--ease-standard)_both] hover:-translate-y-0.5 hover:shadow-card xl:space-y-6 xl:p-6 2xl:p-7',
+        'space-y-4 border-border/85 animate-[fade-in_420ms_var(--ease-standard)_both] hover:shadow-card xl:space-y-6 xl:p-6 2xl:p-7',
         priority === 'primary' ? 'shadow-[0_18px_40px_rgba(15,23,42,0.08)]' : '',
       ].join(' ')}
       style={{ animationDelay: `${delay}ms` }}
@@ -60,7 +60,7 @@ function QuickAccessCard({ title, description, href, label, delay = 0 }: { title
   return (
     <Link
       to={href}
-      className="block rounded-[1.35rem] border border-border bg-surface p-4 shadow-soft transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-accent/15 hover:bg-accent-soft/35 hover:shadow-floating animate-[fade-in_420ms_var(--ease-standard)_both] xl:p-5 2xl:p-6"
+      className="block rounded-[1.35rem] border border-border bg-surface p-4 shadow-soft transition-[box-shadow,border-color,background-color] duration-300 ease-out hover:border-accent/15 hover:bg-accent-soft/35 hover:shadow-floating animate-[fade-in_420ms_var(--ease-standard)_both] xl:p-5 2xl:p-6"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="flex items-start justify-between gap-4 xl:gap-5">

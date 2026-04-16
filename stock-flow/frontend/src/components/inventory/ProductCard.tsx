@@ -42,7 +42,7 @@ export function ProductCard({
     <Card
       elevated
       className={[
-        'space-y-4 transition duration-300 ease-out hover:-translate-y-0.5',
+        'space-y-4 transition-[box-shadow,border-color,background-color] duration-300 ease-out',
         product.feedback ? 'border-accent/40 bg-accent-soft/30 shadow-floating' : '',
       ].join(' ')}
     >

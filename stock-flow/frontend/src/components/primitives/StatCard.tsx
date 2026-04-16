@@ -15,7 +15,7 @@ export function StatCard({ label, value, helper, compact = false }: StatCardProp
     <Card
       elevated
       className={cn(
-        'relative overflow-hidden animate-[fade-in_480ms_var(--ease-standard)_both] hover:-translate-y-0.5 hover:border-accent/10 hover:shadow-floating',
+        'relative overflow-hidden animate-[fade-in_480ms_var(--ease-standard)_both] hover:border-accent/10 hover:shadow-floating',
         compact ? 'flex min-h-[8.75rem] flex-col justify-between gap-3 p-4' : 'flex min-h-32 flex-col justify-between gap-4 sm:min-h-36',
       )}
     >

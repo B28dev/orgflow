@@ -25,7 +25,13 @@
       "Bash(\"/tmp/frontend-eslint.log\")",
       "Bash(\"/tmp/frontend-build.log\")",
       "Read(//root/.openclaude/**)",
-      "Read(//root/.openclaude/plans/**)"
+      "Read(//root/.openclaude/plans/**)",
+      "Bash(printf '\\\\n---\\\\n')",
+      "Bash(printf '\\\\n--- components ---\\\\n')",
+      "Bash(printf '\\\\n--- app layout ---\\\\n')",
+      "Bash(git:*)",
+      "Bash(./node_modules/.bin/tsc -b)",
+      "Bash(npx:*)"
     ]
   }
 }
