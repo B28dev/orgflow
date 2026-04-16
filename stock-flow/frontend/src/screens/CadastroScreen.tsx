@@ -1,20 +1,11 @@
 import { PageContainer } from '../app/layout/PageContainer'
 import { ProductForm } from '../components/forms/ProductForm'
-import { Badge } from '../components/primitives/Badge'
 import { Card } from '../components/primitives/Card'
 import { PRODUCT_FIELDS } from '../domain/productDefinition'
 
 export function CadastroScreen() {
   return (
-    <PageContainer className="gap-5">
-      <div>
-        <Badge tone="accent">Cadastro</Badge>
-        <h1 className="mt-3 text-2xl font-semibold tracking-tight text-text sm:text-3xl">Cadastrar novo item</h1>
-        <p className="mt-2 max-w-2xl text-sm text-text-muted">
-          Preencha só os dados essenciais para incluir o produto e acompanhar o estoque.
-        </p>
-      </div>
-
+    <PageContainer className="gap-5 pt-5">
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px]">
         <ProductForm />
 

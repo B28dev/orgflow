@@ -7,12 +7,14 @@ type EmptyStateProps = {
   title?: string
   description?: string
   actionLabel?: string
+  onAction?: () => void
 }
 
 export function EmptyState({
   title = 'Nada por aqui ainda',
   description = 'Assim que houver itens ou movimentações, esta área vai refletir o fluxo do estoque.',
   actionLabel,
+  onAction,
 }: EmptyStateProps) {
   return (
     <Card className="flex min-h-56 flex-col items-center justify-center gap-4 border-dashed text-center">
@@ -23,7 +25,7 @@ export function EmptyState({
         <h2 className="text-lg font-semibold text-text">{title}</h2>
         <p className="text-sm text-text-muted">{description}</p>
       </div>
-      {actionLabel ? <Button variant="secondary">{actionLabel}</Button> : null}
+      {actionLabel ? <Button variant="secondary" onClick={onAction}>{actionLabel}</Button> : null}
     </Card>
   )
 }

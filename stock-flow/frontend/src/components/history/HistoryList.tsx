@@ -1,10 +1,14 @@
-import { historyFeed } from '../../domain/history'
+import type { HistoryEvent } from '../../types/product'
 import { HistoryItem } from './HistoryItem'
 
-export function HistoryList() {
+type HistoryListProps = {
+  events: Array<HistoryEvent & { label: string }>
+}
+
+export function HistoryList({ events }: HistoryListProps) {
   return (
     <div className="grid gap-4">
-      {historyFeed.map((event, index) => (
+      {events.map((event, index) => (
         <div
           key={event.id}
           className="animate-[fade-in_420ms_var(--ease-standard)_both]"

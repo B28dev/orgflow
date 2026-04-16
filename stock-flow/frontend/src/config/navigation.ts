@@ -17,15 +17,20 @@ const iconMap: Record<NavigationId, LucideIcon> = {
 }
 
 const pathMap: Record<NavigationId, string> = {
+  dashboard: '/',
   estoque: '/estoque',
   cadastrar: '/cadastrar',
   historico: '/historico',
-  dashboard: '/dashboard',
 }
 
-export const NAV_ITEMS = NAVIGATION_BASE.map((item) => ({
-  ...item,
-  id: item.id as NavigationId,
-  path: pathMap[item.id as NavigationId],
-  icon: iconMap[item.id as NavigationId],
-}))
+const navigationOrder: NavigationId[] = ['dashboard', 'estoque', 'cadastrar', 'historico']
+
+export const NAV_ITEMS = navigationOrder
+  .map((id) => NAVIGATION_BASE.find((item) => item.id === id))
+  .filter((item): item is (typeof NAVIGATION_BASE)[number] => Boolean(item))
+  .map((item) => ({
+    ...item,
+    id: item.id as NavigationId,
+    path: pathMap[item.id as NavigationId],
+    icon: iconMap[item.id as NavigationId],
+  }))

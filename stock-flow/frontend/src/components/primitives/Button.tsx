@@ -14,13 +14,13 @@ type ButtonProps = PropsWithChildren<
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-accent text-white shadow-floating hover:bg-accent-strong active:scale-[0.98] active:bg-accent-strong',
+    'border border-accent bg-accent text-white shadow-floating hover:-translate-y-0.5 hover:bg-accent-strong hover:shadow-[0_16px_32px_rgba(80,172,84,0.18)] active:translate-y-0 active:scale-[0.99] active:bg-accent-strong',
   secondary:
-    'bg-surface text-text border border-border shadow-soft hover:border-border-strong hover:bg-surface-muted active:scale-[0.98]',
+    'border border-border bg-surface text-text shadow-soft hover:-translate-y-0.5 hover:border-accent/20 hover:bg-accent-soft/60 hover:text-text active:translate-y-0 active:scale-[0.99]',
   ghost:
-    'bg-transparent text-text-muted hover:bg-surface-muted hover:text-text active:scale-[0.98]',
+    'border border-transparent bg-transparent text-text-muted hover:bg-surface-muted hover:text-text active:scale-[0.99]',
   danger:
-    'bg-danger text-white shadow-soft hover:opacity-95 active:scale-[0.98]',
+    'border border-danger bg-danger text-white shadow-soft hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0 active:scale-[0.99]',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -41,7 +41,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        'inline-flex rounded-xl transition-all duration-200 ease-out disabled:pointer-events-none disabled:opacity-50',
+        'inline-flex rounded-xl transition-[transform,box-shadow,background-color,border-color,color] duration-200 ease-out disabled:pointer-events-none disabled:opacity-50',
         'focus-visible:outline-none',
         variantClasses[variant],
         sizeClasses[size],

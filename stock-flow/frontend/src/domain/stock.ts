@@ -1,15 +1,23 @@
-import { getStockLabel, getStockTone, isLowStock } from './productDefinition'
-import { mockProducts } from '../mocks/products'
+import type { Product } from '../types/product'
+import { getInventoryStatus, getInventoryStatusLabel, isCriticalStatus, isLowOrCriticalStatus } from './stockStatus'
 
-export const inventorySummary = {
-  total: mockProducts.length,
-  lowStock: mockProducts.filter(isLowStock).length,
-  critical: mockProducts.filter((product) => product.quantidadeAtual === 0).length,
-  active: mockProducts.filter((product) => product.ativo).length,
+export function buildInventorySummary(products: Product[]) {
+  return {
+    total: products.length,
+    lowStock: products.map(getInventoryStatus).filter(isLowOrCriticalStatus).length,
+    critical: products.map(getInventoryStatus).filter(isCriticalStatus).length,
+    active: products.filter((product) => product.ativo).length,
+  }
 }
 
-export const inventoryCards = mockProducts.map((product) => ({
-  ...product,
-  stockTone: getStockTone(product),
-  stockLabel: getStockLabel(product),
-}))
+export function buildInventoryCards(products: Product[]) {
+  return products.map((product) => {
+    const stockStatus = getInventoryStatus(product)
+
+    return {
+      ...product,
+      stockStatus,
+      stockLabel: getInventoryStatusLabel(stockStatus),
+    }
+  })
+}

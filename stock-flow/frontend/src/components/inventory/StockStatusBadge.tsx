@@ -1,9 +1,9 @@
 import { Badge } from '../primitives/Badge'
-import type { StatusTone } from '../../types/product'
+import type { InventoryStatus } from '../../types/product'
 
 type StockStatusBadgeProps = {
   label: string
-  tone: StatusTone
+  tone: InventoryStatus
 }
 
 export function StockStatusBadge({ label, tone }: StockStatusBadgeProps) {
@@ -11,7 +11,7 @@ export function StockStatusBadge({ label, tone }: StockStatusBadgeProps) {
     return <Badge tone="danger">{label}</Badge>
   }
 
-  if (tone === 'baixo') {
+  if (tone === 'baixo' || tone === 'atencao') {
     return <Badge tone="warning">{label}</Badge>
   }
 

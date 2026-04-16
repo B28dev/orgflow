@@ -1,24 +1,21 @@
 import { PageContainer } from '../app/layout/PageContainer'
-import { historyFeed } from '../domain/history'
+import { useInventoryContext } from '../app/InventoryProvider'
 import { HistoryList } from '../components/history/HistoryList'
-import { Badge } from '../components/primitives/Badge'
 import { Card } from '../components/primitives/Card'
-
-const historySummary = {
-  entries: historyFeed.filter((event) => event.type === 'entrada').length,
-  exits: historyFeed.filter((event) => event.type === 'saida').length,
-  adjustments: historyFeed.filter((event) => event.type === 'ajuste').length,
-}
+import { buildHistoryFeed, buildHistorySummary } from '../domain/history'
 
 export function HistoricoScreen() {
+  const { rawProducts, movements } = useInventoryContext()
+  const historyFeed = buildHistoryFeed(rawProducts, movements)
+  const historySummary = buildHistorySummary(historyFeed)
+
   return (
-    <PageContainer className="gap-5">
+    <PageContainer className="gap-5 pt-5">
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
         <div>
-          <Badge tone="accent">Histórico</Badge>
-          <h1 className="mt-3 text-2xl font-semibold tracking-tight text-text sm:text-3xl">Acompanhar movimentações</h1>
+          <h2 className="text-lg font-semibold text-text">Resumo do período</h2>
           <p className="mt-2 max-w-2xl text-sm text-text-muted">
-            Consulte entradas, saídas, ajustes e remoções em uma linha do tempo fácil de conferir.
+            Consolidação rápida das movimentações recentes, incluindo as ações registradas na área de estoque durante esta sessão.
           </p>
         </div>
 
@@ -38,7 +35,7 @@ export function HistoricoScreen() {
         </Card>
       </div>
 
-      <HistoryList />
+      <HistoryList events={historyFeed} />
     </PageContainer>
   )
 }

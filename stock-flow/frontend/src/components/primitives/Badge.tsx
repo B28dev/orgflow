@@ -12,7 +12,7 @@ type BadgeProps = PropsWithChildren<
 
 const toneClasses: Record<BadgeTone, string> = {
   neutral: 'bg-surface-muted text-text-muted border-border',
-  accent: 'bg-accent-soft text-accent border-transparent',
+  accent: 'bg-accent-soft text-accent-strong border-accent/10',
   success: 'bg-success-soft text-success border-transparent',
   warning: 'bg-warning-soft text-warning border-transparent',
   danger: 'bg-danger-soft text-danger border-transparent',
@@ -22,7 +22,7 @@ export function Badge({ children, className, tone = 'neutral', ...props }: Badge
   return (
     <span
       className={cn(
-        'inline-flex min-h-8 items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.02em]',
+        'inline-flex min-h-8 items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.02em] transition-colors duration-200 ease-out',
         toneClasses[tone],
         className,
       )}

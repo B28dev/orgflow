@@ -7,7 +7,7 @@ services:
     tty: true
     working_dir: /workspace
     volumes:
-      - C:\Users\bruno\Desktop\planner:/workspace # ← sua pasta aqui
+      - C:\Users\Brun028\Desktop\DK\orgflow:/workspace # ← sua pasta aqui
       - codex_config:/root/.codex
     env_file:
       - .env # ← adicione essa linha
